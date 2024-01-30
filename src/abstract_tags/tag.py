@@ -1,5 +1,12 @@
 from abc import ABC, abstractmethod
 
+# TODO add comments
+# TODO add type hints
+# TODO add docstrings
+# TODO add tests
+# TODO add examples
+# TODO 'NOT IMPLEMENTED' exception for abstract methods
+
 
 class Tag:
     """Abstract class, which defines html tags"""
@@ -9,6 +16,7 @@ class Tag:
         self.__classes = []
 
     def __str__(self):
+        """Returns html string representation of the tag anytime it is casted to string"""
         return self.html_string()
 
     @abstractmethod
@@ -21,6 +29,10 @@ class Tag:
     @property
     @abstractmethod
     def name(self) -> str:
+        """Returns the name of the tag.
+        Each tag should implement this property.
+        It should be a static property, so it can be called without instantiating the class.
+        """
         pass
 
     @property
