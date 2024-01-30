@@ -11,3 +11,7 @@ class LeafTag(Tag):
     @abstractmethod
     def html_string(self, include_children=True) -> str:
         return f"<{self.name}/>"
+
+    @property
+    def parent(self) -> "PairTag":
+        return self.__parent

@@ -1,12 +1,12 @@
-from abc import ABC, abstractmethod, abstractproperty
+from abc import ABC, abstractmethod
 
 
-class Tag(ABC):
-    """Abstract class, which defines html elements"""
+class Tag:
+    """Abstract class, which defines html tags"""
 
     def __init__(self) -> None:
-        self._classes: list[str] = []
-        pass
+        self.__parent = None
+        self.__classes = []
 
     @abstractmethod
     def html_string(self, include_children=True) -> str:
@@ -14,22 +14,18 @@ class Tag(ABC):
         Each tag should implement this method.
         It can also include all the children tags (acording to the include_children parameter)
         """
-        pass
 
-    @abstractproperty
+    @property
+    @abstractmethod
     def name(self) -> str:
         pass
 
-    @abstractproperty
+    @property
     def attributes(self) -> dict:
         pass
 
-    @abstractproperty
-    def parent(self) -> "Tag":
-        pass
-
-    @parent.setter
-    def parent(self, parent: "Tag"):
+    @attributes.setter
+    def attributes(self, attributes: dict):
         pass
 
     @property
@@ -40,3 +36,8 @@ class Tag(ABC):
     def classes(self, classes: list[str]):
         classes_copy = classes.copy()
         self._classes = classes_copy
+
+    @abstractmethod
+    @property
+    def parent(self) -> "Tag":
+        pass

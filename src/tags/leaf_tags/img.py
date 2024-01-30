@@ -9,6 +9,7 @@ class Img(LeafTag):
         self.src = None
         self.alt = None
 
+    # TODO TODO TODO try it with '@property' in the grand parent class
     @property
     def name(self):
         return Img.__name

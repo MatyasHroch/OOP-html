@@ -1,7 +1,7 @@
-from abstract_tags.leaf_tag import LeafTag
+from abstract_tags.pair_tag import PairTag
 
 
-class A(LeafTag):
+class A(PairTag):
     __name = "a"
 
     def __init__(self):

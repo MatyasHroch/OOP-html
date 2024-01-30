@@ -10,9 +10,5 @@ class Form(PairTag):
         self.method = None
 
     @property
-    def method(self):
-        return self._method
-
-    @method.setter
-    def method(self, method):
-        self._method = method
+    def name(self):
+        return Form.__name
