@@ -8,6 +8,9 @@ class Tag:
         self.__parent = None
         self.__classes = []
 
+    def __str__(self):
+        return self.html_string()
+
     @abstractmethod
     def html_string(self, include_children=True) -> str:
         """Returns html string representation of the tag.
@@ -24,20 +27,15 @@ class Tag:
     def attributes(self) -> dict:
         pass
 
-    @attributes.setter
-    def attributes(self, attributes: dict):
-        pass
-
     @property
     def classes(self) -> list[str]:
-        return self._classes
+        return self.__classes
 
     @classes.setter
     def classes(self, classes: list[str]):
         classes_copy = classes.copy()
-        self._classes = classes_copy
+        self.__classes = classes_copy
 
-    @abstractmethod
     @property
     def parent(self) -> "Tag":
         pass

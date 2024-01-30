@@ -1,12 +1,21 @@
-from abstract_tags.tag import Tag
-from abstract_tags.pair_tag import PairTag
-from abstract_tags.leaf_tag import LeafTag
+# input, img
 
-from tags.a import A
+from tags.leaf_tags.img import Img
+from tags.leaf_tags.input import Input
+
+# , select, a, div a form
+from tags.pair_tags.a import A
+from tags.pair_tags.div import Div
+from tags.pair_tags.form import Form
+from tags.pair_tags.select import Select
 
 
-print("Hellouuu Worlddd")
+print("Hello World")
 
-tag_a = A()
+form_tag = Form()
+form_content = [Img(), Input(), Select(), A(), Div()]
 
-print(tag_a.html_string())
+for tag in form_content:
+    form_tag + tag
+
+print(form_tag)
