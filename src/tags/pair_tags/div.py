@@ -10,3 +10,7 @@ class Div(PairTag):
     @property
     def name(self):
         return Div.__name
+
+    @property
+    def attributes(self):
+        return super().attributes

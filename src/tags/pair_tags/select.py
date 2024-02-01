@@ -10,3 +10,7 @@ class Select(PairTag):
     @property
     def name(self):
         return Select.__name
+
+    @property
+    def attributes(self):
+        return super().attributes
