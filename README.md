@@ -19,4 +19,4 @@
   - ten nepřeruší běh programu, ale upozorní uživatele na chybějící data
 ## Speciální TextTag
 - je analogií k TextNodu, tedy představuje pouze text, aby bylo možné určit jeho pozici v HTML
-- porušuje někerá z teoretických pravidel dědičnosti, ale v tomto případě mi přijde, že to dává smysl
+- porušuje někerá z teoretických pravidel dědičnosti, ale v tomto případě to dává smysl
