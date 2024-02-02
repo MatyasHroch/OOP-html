@@ -2,6 +2,8 @@ from abstract_tags.pair_tag import PairTag
 
 
 class Form(PairTag):
+    """Represents a <form> tag"""
+
     __name = "form"
 
     def __init__(self):

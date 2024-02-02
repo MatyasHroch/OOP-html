@@ -2,6 +2,8 @@ from abstract_tags.pair_tag import PairTag
 
 
 class Select(PairTag):
+    """Represents a <select> tag"""
+
     __name = "select"
 
     def __init__(self):

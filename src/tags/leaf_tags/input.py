@@ -2,7 +2,9 @@ from abstract_tags.leaf_tag import LeafTag
 
 
 class Input(LeafTag):
-    __name = "input"
+    """Represents an <input> tag"""
+
+    # __name = "input"
 
     def __init__(self, type: str, value=None):
         super().__init__()
@@ -13,9 +15,9 @@ class Input(LeafTag):
         self.type = type
         self.value = value
 
-    @property
-    def name(self):
-        return Input.__name
+    # @property
+    # def name(self):
+    #     return Input.__name
 
     @property
     def attributes(self):

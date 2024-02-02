@@ -1,10 +1,12 @@
+from abc import ABC, abstractmethod
+
 from abstract_tags.tag import Tag
 
 
 class PairTag(Tag):
     """Represents a tag that can contain other tags inside.
     Each tag that can contain other tags should inherit from this class.
-    For example: <div>, <span>, <a>, ..."""
+    """
 
     def __init__(self) -> "PairTag":
         """Constructor of the PairTag class, we set default values to the attributes all pair tags have in common."""
@@ -14,6 +16,25 @@ class PairTag(Tag):
     def __add__(self, other: Tag):
         """Whenever we use the + operator on a PairTag, we add the other tag as a child of the PairTag."""
         self.append_child(other)
+
+    @property
+    def parent(self) -> "PairTag":
+        """This class specifies the parent property as a PairTag"""
+        return self.__parent
+
+    @property
+    def attributes(self) -> dict[str, str]:
+        return super().attributes
+
+    @property
+    def children(self) -> list[Tag]:
+        """Returns a copy of the children list."""
+        return self.__children.copy()
+
+    @children.setter
+    def children(self, children: list[Tag]) -> "PairTag":
+        """Sets the children list to the copy of the given list."""
+        self.__children = children.copy()
 
     def append_child(self, other: Tag):
         """Adds the other tag as a child of the PairTag."""
@@ -41,28 +62,9 @@ class PairTag(Tag):
         self.__children.remove(other)
         other.__parent = None
 
-    @property
-    def parent(self) -> "PairTag":
-        """This class specifies the parent property as a PairTag"""
-        return self.__parent
-
-    @property
-    def children(self) -> list[Tag]:
-        """Returns a copy of the children list."""
-        return self.__children.copy()
-
-    @property
-    def attributes(self) -> dict[str, str]:
-        return super().attributes
-
-    @children.setter
-    def children(self, children: list[Tag]) -> "PairTag":
-        """Sets the children list to the copy of the given list."""
-        self.__children = children.copy()
-
     def html_string(self, include_children=True, depth=0) -> str:
-        """Returns html string representation of the tag.
-        Each tag that inherits from Tag should implement this method.
+        """Returns html string representation of all common pair tags.
+        Because PairTag inherits from Tag, it has to implement the html_string method.
         """
 
         # we create a string of spaces for indentation
@@ -86,4 +88,6 @@ class PairTag(Tag):
         if children_html_str:
             children_html_str = f"\n{children_html_str}\n{indentation}"
 
-        return f"{indentation}<{self.name}{attributes_str}>{children_html_str}<{self.name}/>"
+        name = self.name
+
+        return f"{indentation}<{name}{attributes_str}>{children_html_str}<{name}/>"

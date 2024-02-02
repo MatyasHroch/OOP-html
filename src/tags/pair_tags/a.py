@@ -2,6 +2,8 @@ from abstract_tags.pair_tag import PairTag
 
 
 class A(PairTag):
+    """Represents an <a> tag"""
+
     __name = "a"
 
     def __init__(self, href: str = None):

@@ -1,12 +1,5 @@
 from abc import ABC, abstractmethod
 
-# TODO add comments
-# TODO add type hints
-# TODO add docstrings
-# TODO add tests
-# TODO add examples
-# TODO 'NOT IMPLEMENTED' exception for abstract methods
-
 
 class Tag:
     """Abstract class, which defines html tags"""
@@ -15,8 +8,8 @@ class Tag:
         """Constructor of the Tag class, we set default values to the attributes."""
 
         # We can add attributes, where we need some checks or additional logic
-        self.__parent = None
-        self.__classes = []
+        self.__parent: "Tag" = None
+        self.__classes: list[str] = []
 
         # We can add attributes, where we don't need any checks or additional logic
         self.title: str = None
@@ -33,15 +26,14 @@ class Tag:
         Each tag should implement this method.
         It can also include all the children tags (acording to the include_children parameter)
         """
+        return NotImplemented
 
     @property
-    @abstractmethod
     def name(self) -> str:
         """Returns the name of the tag.
-        Each tag should implement this property.
         It should be a static property, so it can be called without instantiating the class.
         """
-        pass
+        return self.__class__.__name__.lower()
 
     @property
     def classes(self) -> list[str]:
@@ -90,6 +82,6 @@ class Tag:
 
     def append_class(self, class_name: str):
         """Adds the given class to the list of classes.
-        We can add the same class multiple times, because it is possible to view it in the html code.
+        We can add the same class multiple times, because it is possible in html.
         """
         self.__classes.append(class_name)

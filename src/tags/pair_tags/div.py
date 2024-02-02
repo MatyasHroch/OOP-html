@@ -2,6 +2,8 @@ from abstract_tags.pair_tag import PairTag
 
 
 class Div(PairTag):
+    """Represents a <div> tag"""
+
     __name = "div"
 
     def __init__(self):

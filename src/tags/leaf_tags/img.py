@@ -4,7 +4,7 @@ from abstract_tags.leaf_tag import LeafTag
 class Img(LeafTag):
     """Represents an <img> tag"""
 
-    __name = "img"
+    # __name = "img"
 
     def __init__(self, src: str, alt: str = None):
         super().__init__()
@@ -18,10 +18,9 @@ class Img(LeafTag):
         self.src = src
         self.alt = alt
 
-    # TODO TODO TODO try it with '@property' in the grand parent class
-    @property
-    def name(self):
-        return Img.__name
+    # @property
+    # def name(self):
+    #     return Img.__name
 
     @property
     def attributes(self):
