@@ -21,8 +21,7 @@ div_tag = Div()
 div_tag.append_children([Input("text"), Select()])
 
 a_tag = A("google.com")
-# using the __add__ method
-a_tag + Img("./media/pictures/home.jpg")
+a_tag + Img("./media/pictures/home.jpg")  # using the __add__ operator
 
 text_tag = TextTag("This is a text for the form")
 
