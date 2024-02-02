@@ -1,5 +1,3 @@
-from abc import ABC, abstractmethod, abstractproperty
-
 from abstract_tags.tag import Tag
 from abstract_tags.pair_tag import PairTag
 

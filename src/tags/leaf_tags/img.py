@@ -1,26 +1,23 @@
 from abstract_tags.leaf_tag import LeafTag
+from logger import log_warning
 
 
 class Img(LeafTag):
     """Represents an <img> tag"""
 
-    # __name = "img"
-
     def __init__(self, src: str, alt: str = None):
         super().__init__()
 
         if src is None:
-            raise Warning("Src is required")
+            log_warning("Src is required for <img> tag")
 
         if alt is None:
-            raise Warning("Alt is required for accessibility and validation")
+            log_warning(
+                "Alt is required in the <img> tag for accessibility and validation"
+            )
 
         self.src = src
         self.alt = alt
-
-    # @property
-    # def name(self):
-    #     return Img.__name
 
     @property
     def attributes(self):

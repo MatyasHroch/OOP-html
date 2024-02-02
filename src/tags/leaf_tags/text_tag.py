@@ -7,24 +7,15 @@ class TextTag(LeafTag):
     It allows us to add text and specify its position in the html tree.
     """
 
-    __name = "text_tag"
-
     def __init__(self, text: str):
         self.text = text
 
     def html_string(self, depth=0) -> str:
         """This is a special tag so it implements its own html_string method.
-        It doesnt use its name
+        It doesnt use its class name or attributes, it just returns the text.
         """
         indentation = "  " * depth
         return indentation + self.text
-
-    @property
-    def name(self):
-        """Even though this is a special tag, it still has a name.
-        It is just not used in the html_string method.
-        """
-        return TextTag.__name
 
     @property
     def attributes(self):

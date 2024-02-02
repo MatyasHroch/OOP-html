@@ -1,5 +1,3 @@
-from abc import ABC, abstractmethod
-
 from abstract_tags.tag import Tag
 
 

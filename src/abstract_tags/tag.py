@@ -1,6 +1,3 @@
-from abc import ABC, abstractmethod
-
-
 class Tag:
     """Abstract class, which defines html tags"""
 
@@ -19,14 +16,6 @@ class Tag:
     def __str__(self):
         """Returns html string representation of the tag anytime it is casted to string"""
         return self.html_string()
-
-    @abstractmethod
-    def html_string(self, include_children=True, depth=0) -> str:
-        """Returns html string representation of the tag.
-        Each tag should implement this method.
-        It can also include all the children tags (acording to the include_children parameter)
-        """
-        return NotImplemented
 
     @property
     def name(self) -> str:
@@ -85,3 +74,11 @@ class Tag:
         We can add the same class multiple times, because it is possible in html.
         """
         self.__classes.append(class_name)
+
+    def html_string(self, include_children=True, depth=0) -> str:
+        """Each tag that inherits from the Tag class should implement this method.
+        It should return the html string representation of the tag.
+        It can also include all the children tags (acording to the include_children parameter).
+        The depth parameter should be used for indentation.
+        """
+        return NotImplemented

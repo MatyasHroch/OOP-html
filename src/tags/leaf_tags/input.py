@@ -1,23 +1,18 @@
 from abstract_tags.leaf_tag import LeafTag
+from logger import log_warning
 
 
 class Input(LeafTag):
     """Represents an <input> tag"""
 
-    # __name = "input"
-
     def __init__(self, type: str, value=None):
         super().__init__()
 
         if type is None:
-            raise Warning("Input type cannot be None")
+            log_warning("Type is required for <input> tag")
 
         self.type = type
         self.value = value
-
-    # @property
-    # def name(self):
-    #     return Input.__name
 
     @property
     def attributes(self):
