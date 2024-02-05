@@ -9,4 +9,5 @@ class Div(PairTag):
 
     @property
     def attributes(self):
+        """No special attributes for the div tag. It just returns the parent attributes."""
         return super().attributes

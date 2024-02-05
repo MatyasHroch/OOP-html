@@ -40,10 +40,23 @@ class Img(LeafTag):
 
     @property
     def attributes(self):
-        attributes = super().attributes
-        attributes.update({"src": self.src, "alt": self.alt})
-        return attributes
+        """Returns the attributes of the tag. It uses the parent attributes and adds the new ones."""
 
+        parent_attributes = super().attributes
+        my_attributes = {
+            "src": self.src,
+            "alt": self.alt,
+            "width": self.width,
+            "height": self.height,
+            "loading": self.loading,
+            "decoding": self.decoding,
+            "crossorigin": self.crossorigin,
+            "usemap": self.usemap,
+            "ismap": self.ismap,
+        }
+        return {**parent_attributes, **my_attributes}
+
+    # EXAMPLE OF HOW TO CHANGE THE PRINTED NAME OF THE TAG
     # If we want to print other name for the tag than the class name
     # we can just override the name property:
     # @property

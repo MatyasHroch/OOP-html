@@ -27,6 +27,18 @@ class Input(LeafTag):
 
     @property
     def attributes(self):
-        attributes = super().attributes
-        attributes.update({"type": self.type, "value": self.value})
-        return attributes
+        """Returns the attributes of the tag. It uses the parent attributes and adds the new ones."""
+
+        parent_attributes = super().attributes
+        my_attributes = {
+            "type": self.type,
+            "value": self.value,
+            "placeholder": self.placeholder,
+            "required": self.required,
+            "disabled": self.disabled,
+            "readonly": self.readonly,
+            "autofocus": self.autofocus,
+            "accept": self.accept,
+            "autocomplete": self.autocomplete,
+        }
+        return {**parent_attributes, **my_attributes}

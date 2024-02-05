@@ -13,7 +13,7 @@ from tags.pair_tags.select import Select
 from tags.leaf_tags.text_tag import TextTag
 
 
-print("Lets create a form with some tags inside:\n")
+print("Lets create a form with some tags inside:\n\n")
 
 form_tag = Form()
 
@@ -27,6 +27,5 @@ a_tag + Img("./media/pictures/home.jpg")  # using the __add__ operator
 text_tag = TextTag("This is a text for the form")
 
 form_tag.append_children([text_tag, a_tag, div_tag])
-
 
 print(form_tag)

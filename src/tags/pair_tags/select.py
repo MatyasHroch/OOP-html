@@ -16,4 +16,15 @@ class Select(PairTag):
 
     @property
     def attributes(self):
-        return super().attributes
+        """Returns the attributes of the tag. It uses the parent attributes and adds the new ones."""
+
+        parent_attributes = super().attributes
+        my_attributes = {
+            "size": self.size,
+            "multiple": self.multiple,
+            "disabled": self.disabled,
+            "autofocus": self.autofocus,
+            "required": self.required,
+        }
+
+        return {**parent_attributes, **my_attributes}

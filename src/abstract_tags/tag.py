@@ -48,8 +48,9 @@ class Tag:
     @property
     def attributes(self) -> dict[str, str]:
         """Returns a dictionary of all the attributes of the tag.
-        Each tag should implement this property and call the parent's attributes property.
-        So we can collect all the attributes of the tag in one place using an inheritance.
+        Each tag should implement this property and call the parent's attributes property
+        so we can collect all the attributes of the tag in one place using an inheritance.
+        We can include attributes with None value, because they will be removed during the string conversion.
         """
         return {
             "title": self.title,

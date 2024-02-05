@@ -23,3 +23,7 @@ class TextTag(LeafTag):
     def attributes(self):
         """Because this is a special tag, it doesn't have any attributes"""
         return {}
+
+    def name(self) -> str:
+        """Returns the name of the tag."""
+        return "TextNode"

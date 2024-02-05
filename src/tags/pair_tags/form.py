@@ -23,6 +23,15 @@ class Form(PairTag):
 
     @property
     def attributes(self):
-        attributes = super().attributes
-        attributes.update({"action": self.action, "method": self.method})
-        return attributes
+        """Returns the attributes of the tag. It uses the parent attributes and adds the new ones."""
+
+        parent_attributes = super().attributes
+        my_attributes = {
+            "action": self.action,
+            "method": self.method,
+            "target": self.target,
+            "enctype": self.enctype,
+            "novalidate": self.novalidate,
+        }
+
+        return {**parent_attributes, **my_attributes}

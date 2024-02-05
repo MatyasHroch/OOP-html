@@ -6,6 +6,7 @@ class A(PairTag):
     """Represents an <a> tag"""
 
     def __init__(self, href: str = None):
+        """Initializes the <a> tag. If the required attributes are not provided, it logs a warning."""
         super().__init__()
 
         if href is None:
@@ -24,6 +25,16 @@ class A(PairTag):
 
     @property
     def attributes(self):
-        attributes = super().attributes
-        attributes.update({"href": self.href})
-        return attributes
+        """Returns the attributes of the tag. It uses the parent attributes and adds the new ones."""
+
+        parent_attributes = super().attributes
+        my_attributes = {
+            "href": self.href,
+            "target": self.target,
+            "download": self.download,
+            "rel": self.rel,
+            "type": self.type,
+            "hreflang": self.hreflang,
+            "referrerpolicy": self.referrerpolicy,
+        }
+        return {**parent_attributes, **my_attributes}
