@@ -15,15 +15,14 @@ class Img(LeafTag):
     """Represents an <img> tag"""
 
     def __init__(self, src: str, alt: str = None):
+        """Initializes the <img> tag. If the required attributes are not provided, it logs a warning."""
         super().__init__()
 
         if src is None:
             log_warning("Src is required for <img> tag")
 
         if alt is None:
-            log_warning(
-                "Alt is required in the <img> tag for accessibility and validation"
-            )
+            log_warning("Alt is required in the <img> tag for a validation")
 
         # Required attributes
         self.src = src

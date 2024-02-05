@@ -25,5 +25,5 @@ class A(PairTag):
     @property
     def attributes(self):
         attributes = super().attributes
-        attributes.update({"href": self._href})
+        attributes.update({"href": self.href})
         return attributes

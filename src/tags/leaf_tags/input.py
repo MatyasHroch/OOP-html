@@ -6,6 +6,7 @@ class Input(LeafTag):
     """Represents an <input> tag"""
 
     def __init__(self, type: str):
+        """Initializes the <input> tag. If the required attributes are not provided, it logs a warning."""
         super().__init__()
 
         if type is None:

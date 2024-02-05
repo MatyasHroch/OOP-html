@@ -8,6 +8,8 @@ class TextTag(LeafTag):
     """
 
     def __init__(self, text: str):
+        """Initializes the text tag with the given text."""
+        super().__init__()
         self.text = text
 
     def html_string(self, depth=0) -> str:

@@ -2,23 +2,30 @@ from abstract_tags.tag import Tag
 
 
 class PairTag(Tag):
-    """Represents a tag that can contain other tags inside.
+    """Represents a tag that can have children.
     Each tag that can contain other tags should inherit from this class.
+    The main purpose of this class is to provide a way to add and remove children tags
+    and to provide a way to get the html string representation of the tag and its children.
     """
 
     def __init__(self) -> "PairTag":
-        """Constructor of the PairTag class, we set default values to the attributes all pair tags have in common."""
+        """Constructor of the PairTag class.
+        We set default values to the attributes all pair tags have in common.
+        """
+
         super().__init__()
         self.__children = []
 
     def __add__(self, other: Tag):
-        """Whenever we use the + operator on a PairTag, we add the other tag as a child of the PairTag."""
+        """Whenever we use the + operator on a PairTag and Tag,
+        we add the other tag as a child of the PairTag.
+        """
         self.append_child(other)
 
     @property
     def parent(self) -> "PairTag":
         """This class specifies the parent property as a PairTag"""
-        return self.__parent
+        return self._parent
 
     @property
     def attributes(self) -> dict[str, str]:
@@ -43,7 +50,7 @@ class PairTag(Tag):
             )
 
         self.__children.append(other)
-        other.__parent = self
+        other._parent = self
 
     def append_children(self, others: list[Tag]):
         """Adds the others tags as children of the PairTag."""
@@ -58,7 +65,7 @@ class PairTag(Tag):
             raise ValueError("Cannot remove a child that is not in the children list.")
 
         self.__children.remove(other)
-        other.__parent = None
+        other._parent = None
 
     def html_string(self, include_children=True, depth=0) -> str:
         """Returns html string representation of all common pair tags.

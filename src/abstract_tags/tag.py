@@ -5,7 +5,7 @@ class Tag:
         """Constructor of the Tag class, we set default values to the attributes."""
 
         # We can add attributes, where we need some checks or additional logic
-        self.__parent: "Tag" = None
+        self._parent: "Tag" = None
         self.__classes: list[str] = []
 
         # We can add attributes, where we don't need any checks or additional logic
@@ -20,7 +20,9 @@ class Tag:
     @property
     def name(self) -> str:
         """Returns the name of the tag.
-        It should be a static property, so it can be called without instantiating the class.
+        By default it returns the lower case name of the class.
+        If we want to print other name for the tag than the class name,
+        we can just override this name property in the child class.
         """
         return self.__class__.__name__.lower()
 
@@ -37,12 +39,16 @@ class Tag:
     @property
     # @abstractmethod
     def parent(self) -> "Tag":
-        return self.__parent
+        """Returns the parent of the tag.
+        At this level we use the Tag class as the type of the parent.
+        Later we can specify the type of the parent in the child classes.
+        """
+        return self._parent
 
     @property
     def attributes(self) -> dict[str, str]:
         """Returns a dictionary of all the attributes of the tag.
-        Each tag should implement this property and call the super().attributes method.
+        Each tag should implement this property and call the parent's attributes property.
         So we can collect all the attributes of the tag in one place using an inheritance.
         """
         return {
@@ -55,6 +61,7 @@ class Tag:
     @property
     def attributes_str(self) -> str:
         """Returns a string representation of all the attributes of the tag."""
+
         attributes = self.attributes
 
         # we get rid of the class attribute if it is empty
