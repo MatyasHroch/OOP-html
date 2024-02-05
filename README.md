@@ -22,7 +22,6 @@
   - ten nepřeruší běh programu, ale upozorní uživatele na chybějící hodnotu atributu
 ## Úprava jména tagu
 - pomocí property `name` je možné specifikovat, jaké jméno má mít tag při tisku, není to však nutné, výchozí hodnotou je totiž název třídy
-- tedy pokud se třída jmenuje Img, její jméno pro tisk bude automaticky 'img'
 ## Speciální TextTag
-- je analogií k TextNodu, tedy představuje pouze text, aby bylo možné určit jeho pozici v HTML
+- je analogií k TextNodu z klasického DOMu, tedy představuje pouze text, aby bylo možné určit jeho pozici v HTML
 - v tomto speciálním případě jsou záměrně porušena někerá z teoretických pravidel dědičnosti
