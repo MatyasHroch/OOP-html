@@ -15,17 +15,19 @@ from tags.leaf_tags.text_tag import TextTag
 
 print("Lets create a form with some tags inside:\n\n")
 
+# Creating the tags
 form_tag = Form()
-
 div_tag = Div()
-# div_tag.append_class("row")
-div_tag.append_children([Input("text"), Select()])
-
 a_tag = A("google.com")
-a_tag + Img("./media/pictures/home.jpg")  # using the __add__ operator
-
 text_tag = TextTag("This is a text for the form")
 
+# Adding classes to the div tag
+div_tag.append_class("row")
+div_tag.append_class("col-md-4")
+
+# Adding the tags to the form
+div_tag.append_children([Input("text"), Select()])
+a_tag + Img("./media/pictures/home.jpg")  # using the __add__ operator
 form_tag.append_children([text_tag, a_tag, div_tag])
 
 print(form_tag)
